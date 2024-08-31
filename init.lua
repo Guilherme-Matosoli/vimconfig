@@ -1,4 +1,8 @@
-vim.cmd("set norelativenumber")
+--disbale relative number by default
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  pattern = "*",
+  command = "set norelativenumber",
+})
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
