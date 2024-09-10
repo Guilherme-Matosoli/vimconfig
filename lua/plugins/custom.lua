@@ -29,4 +29,9 @@ return {
   {
     "styled-components/vim-styled-components",
   },
+
+  --Git blame -> Reveal commit author
+  {
+    "APZelos/blamer.nvim"
+  }
 }
