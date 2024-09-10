@@ -1,3 +1,6 @@
+vim.g.blamer_enabled = true
+vim.g.blamer_show_in_visual_modes = true
+
 --disbale relative number by default
 vim.api.nvim_create_autocmd("BufWinEnter", {
   pattern = "*",
