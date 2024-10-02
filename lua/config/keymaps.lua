@@ -7,4 +7,4 @@ end)
 vim.keymap.set('v', "<leader>d", "<cmd>lua vim.lsp.buf.definition()<CR>")
 
 -- Find files by content
-vim.keymap.set('n', "<leader>fg", ":Telescope live_grep<CR>")
+vim.keymap.set('n', "<leader>fp", ":Telescope live_grep<CR>", { desc = "Find files by content" })
