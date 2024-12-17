@@ -1,11 +1,17 @@
 vim.g.blamer_enabled = true
 vim.g.blamer_show_in_visual_modes = true
 
---disbale relative number by default
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  pattern = "*",
-  command = "set norelativenumber",
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+    vim.cmd('set mouse=""')
+	end,
 })
+
+--disbale relative number by default
+-- vim.api.nvim_create_autocmd("BufWinEnter", {
+--   pattern = "*",
+--   command = "set norelativenumber",
+-- })
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
@@ -47,12 +53,20 @@ require("neo-tree").setup({
   },
 })
 
-require'lspconfig'.tsserver.setup{
+vim.g.autoformat = false
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.vue", "*.js" },
+  callback = function()
+    vim.lsp.buf.format = nil
+  end
+})
+
+require('lspconfig').tsserver.setup({
   init_options = {
     plugins = {
       {
         name = "@vue/typescript-plugin",
-        location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+        location = "/home/matos/Downloads/@vue/typescript-plugin",
         languages = {"javascript", "typescript", "vue"},
       },
     },
@@ -62,4 +76,4 @@ require'lspconfig'.tsserver.setup{
     "typescript",
     "vue",
   },
-}
+})
