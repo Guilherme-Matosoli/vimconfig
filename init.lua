@@ -1,6 +1,7 @@
 vim.g.blamer_enabled = true
 vim.g.blamer_show_in_visual_modes = true
 
+-- disable mouse clicks
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
     vim.cmd('set mouse=""')
