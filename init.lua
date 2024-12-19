@@ -67,7 +67,7 @@ require('lspconfig').tsserver.setup({
     plugins = {
       {
         name = "@vue/typescript-plugin",
-        location = "/home/matos/Downloads/@vue/typescript-plugin",
+        location = "/home/matos/.npm-global/lib/node_modules/@vue/typescript-plugin",
         languages = {"javascript", "typescript", "vue"},
       },
     },
