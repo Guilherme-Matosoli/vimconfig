@@ -3,9 +3,9 @@ vim.g.blamer_show_in_visual_modes = true
 
 -- disable mouse clicks
 vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
+  callback = function()
     vim.cmd('set mouse=""')
-	end,
+  end,
 })
 
 --disbale relative number by default
@@ -46,29 +46,38 @@ require("presence").setup({
 --Show ocult items by default
 require("neo-tree").setup({
   filesystem = {
-    filtered_items = {
-      visible = true,
-      hide_dotfiles = false,
-      hide_gitignored = true,
+      hijack_netrw_behavior = "open_default",
+      use_libuv_file_watcher = true, -- This will use the OS level file watchers
+      watch_dir_patterns = { "*" },   -- Watch all directories
+      bind_to_cwd = true,            -- Ensure Neotree updates when the working directory changes
+      filtered_items = {
+        visible = false,
+        hide_dotfiles = false,
+        hide_gitignored = false,
+      },
     },
-  },
-})
+    git_status = {
+      refresh = {
+        delay = 100,                 -- Delay in milliseconds before refreshing git status
+        enabled = true,              -- Enable automatic git status refresh
+      },
+    },})
 
 vim.g.autoformat = false
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.vue", "*.js" },
   callback = function()
     vim.lsp.buf.format = nil
-  end
+  end,
 })
 
-require('lspconfig').tsserver.setup({
+require("lspconfig").tsserver.setup({
   init_options = {
     plugins = {
       {
         name = "@vue/typescript-plugin",
         location = "/home/matos/.npm-global/lib/node_modules/@vue/typescript-plugin",
-        languages = {"javascript", "typescript", "vue"},
+        languages = { "javascript", "typescript", "vue" },
       },
     },
   },
@@ -78,3 +87,23 @@ require('lspconfig').tsserver.setup({
     "vue",
   },
 })
+
+require'nvim-web-devicons'.setup {
+  -- your personnal icons can go here (to override)
+  -- you can specify color or cterm_color instead of specifying both of them
+  -- DevIcon will be appended to `name`
+  override = {
+    zsh = {
+      icon = "",
+      color = "#428850",
+      cterm_color = "65",
+      name = "Zsh"
+    }
+  };
+  -- globally enable different highlight colors per icon (default to true)
+  -- if set to false all icons will have the default icon's color
+  color_icons = true;
+  -- globally enable default icons (default to false)
+  -- will get overriden by `get_icons` option
+  default = true;
+}
