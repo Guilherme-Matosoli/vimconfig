@@ -46,22 +46,13 @@ require("presence").setup({
 --Show ocult items by default
 require("neo-tree").setup({
   filesystem = {
-      hijack_netrw_behavior = "open_default",
-      use_libuv_file_watcher = true, -- This will use the OS level file watchers
-      watch_dir_patterns = { "*" },   -- Watch all directories
-      bind_to_cwd = true,            -- Ensure Neotree updates when the working directory changes
-      filtered_items = {
-        visible = false,
-        hide_dotfiles = false,
-        hide_gitignored = false,
-      },
+    filtered_items = {
+      visible = true,
+      hide_dotfiles = false,
+      hide_gitignored = true,
     },
-    git_status = {
-      refresh = {
-        delay = 100,                 -- Delay in milliseconds before refreshing git status
-        enabled = true,              -- Enable automatic git status refresh
-      },
-    },})
+  },
+})
 
 vim.g.autoformat = false
 vim.api.nvim_create_autocmd("BufWritePre", {
