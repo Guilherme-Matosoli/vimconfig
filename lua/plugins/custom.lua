@@ -16,22 +16,35 @@ return {
 
   --tailwind autocomplete
   {
-    "luckasRanarison/tailwind-tools.nvim",
+    'luckasRanarison/tailwind-tools.nvim',
   },
-
   --vue config
   {
     "posva/vim-vue",
     ft = "vue",
   },
 
-  --Styled-components syntax highlighting
-  {
-    "styled-components/vim-styled-components",
-  },
-
   --Git blame -> Reveal commit author
   {
     "APZelos/blamer.nvim"
-  }
+  },
+  {
+    'nvim-telescope/telescope.nvim', tag = '0.1.8',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+
+  {
+    "neanias/everforest-nvim"
+  },
+
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "everforest",
+    },
+  },
+
+  {
+    'DaikyXendo/nvim-material-icon'
+  },
 }
