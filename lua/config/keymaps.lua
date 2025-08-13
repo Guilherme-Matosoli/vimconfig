@@ -18,7 +18,7 @@ vim.keymap.set('s', 'S', function()
 end, { desc = 'Surround in select mode' })
 
 -- Rename declarations
-vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename)
+vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = "Rename declarations" })
 
 -- Move select texts up or down
 vim.keymap.set("n", "<S-j>", "<cmd>m .+1<cr>==", { desc = "Move line down" })
