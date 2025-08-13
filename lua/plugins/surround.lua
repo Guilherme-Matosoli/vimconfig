@@ -3,6 +3,10 @@ return {
     version = "^3.0.0",
     event = "VeryLazy",
     config = function()
-        require("nvim-surround").setup({})
+        require("nvim-surround").setup({
+          keymaps = {
+            visual = "S"
+          }
+    })
     end
 }
