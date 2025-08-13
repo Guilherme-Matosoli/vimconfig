@@ -14,3 +14,12 @@ vim.keymap.set('s', 'S', function()
   vim.cmd('normal! gv')
   vim.api.nvim_feedkeys('S', 'n', true)
 end, { desc = 'Surround in select mode' })
+
+-- Rename declarations
+vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename)
+
+-- Move select texts up or down
+vim.keymap.set("n", "<S-j>", "<cmd>m .+1<cr>==", { desc = "Move line down" })
+vim.keymap.set("v", "<S-k>", ":m '<-2<cr>gv=gv", { desc = "Move selection up" })
+vim.keymap.set("n", "<S-k>", "<cmd>m .-2<cr>==", { desc = "Move line up" })
+vim.keymap.set("v", "<S-j>", ":m '>+1<cr>gv=gv", { desc = "Move selection down" })
