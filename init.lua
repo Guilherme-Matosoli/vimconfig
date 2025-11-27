@@ -52,6 +52,12 @@ require("neo-tree").setup({
       hide_gitignored = true,
     },
   },
+  event_handlers = {
+    {
+      event = "neo_tree_buffer_enter",
+      handler = function(arg) vim.cmd [[ setlocal relativenumber ]] end
+    }
+  }
 })
 
 vim.g.autoformat = false
