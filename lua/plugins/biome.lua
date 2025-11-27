@@ -2,7 +2,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    dependencies = { "williamboman/mason-lspconfig.nvim" },
+    dependencies = { "mason-org/mason-lspconfig.nvim" },
     opts = function(_, opts)
       local servers = opts.servers or {}
       
